@@ -1,0 +1,5 @@
+  # GET /permalink
+  def display
+    @<%= singular_name %> = <%= singular_name.classify %>.online.find_by_permalink! params[:permalink]
+  end
+

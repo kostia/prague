@@ -1,0 +1,7 @@
+<h1><%%= @<%= singular_name %>.title %></h1>
+<p><%%= raw @<%= singular_name %>.body %></p>
+<ul>
+  <%% <%= plural_name.classify %>.online.each do |b| %>
+    <li><%%= link_to_display_<%= singular_name %> b.permalink, unless_current: true %></li>
+  <%% end %>
+</ul>
