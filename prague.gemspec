@@ -10,10 +10,10 @@ Gem::Specification.new do |s|
   s.authors     = ["Kostiantyn Kahanskyi"]
   s.email       = ["kostiantyn.kahanskyi@googlemail.com"]
   s.homepage    = "https://github.com/kostia/prague"
-  s.summary     = "TODO: Summary of Prague."
-  s.description = "TODO: Description of Prague."
+  s.summary     = 'Rails generator for semi-static pages (like "about us", "disclamer" etc.)'
+  s.description = 'Rails generator for semi-static pages (like "about us", "disclamer" etc.)'
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["Rakefile", "README.md"]
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency "rails", "~> 3.2.8"
