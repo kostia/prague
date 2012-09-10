@@ -22,6 +22,11 @@ module Prague
         template 'view.html.erb.erb', "app/views/#{plural_name}/display.html.erb"
       end
 
+      def add_meta_tags_to_application_layout
+        gsub_file 'app/views/layouts/application.html.erb', '</head>',
+            "  <%= content_for :meta_tags if content_for? :meta_tags %>\n</head>"
+      end
+
       def create_display_helper
         template 'helper.rb.erb', "app/helpers/#{plural_name}_display_helper.rb"
       end
