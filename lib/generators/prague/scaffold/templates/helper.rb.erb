@@ -2,7 +2,6 @@ module <%= plural_name.camelize %>DisplayHelper
   #
   # Helper for linking to <%= plural_name %> with a fallback.
   # html_options are the same as for link_to helper.
-  # Additionally you can switch between link_to and link_to_unless_current with option unless_current.
   #
   #   link_to_display_<%= singular_name %> 'about'
   #   # => <a href="/about" title="About's link title">About's link title</a>
@@ -26,17 +25,16 @@ module <%= plural_name.camelize %>DisplayHelper
   # If the <%= singular_name %> doesn't exist and you want to display just nothing use the unless_missing option.
   #
   def link_to_display_<%= singular_name %>(permalink, html_options={})
-    method_name = html_options.delete(:unless_current) ? :link_to_unless_current : :link_to
     unless_missing = html_options.delete :unless_missing
-    if <%= singular_name %> = <%= plural_name.classify %>.find_by_permalink permalink
+    if <%= singular_name %> = <%= plural_name.classify %>.find_by_permalink(permalink)
       url = display_<%= singular_name %>_path permalink: <%= singular_name %>.permalink
       html_options = html_options.reverse_merge title: <%= singular_name %>.link_title
       if block_given?
-        send :method_name, url, html_options do
+        link_to url, html_options do
           yield <%= singular_name %>
         end
       else
-        send :method_name, <%= singular_name %>.link_title, url, html_options
+        link_to <%= singular_name %>.link_title, url, html_options
       end
     elsif !unless_missing
       link_to permalink, "##{permalink}", title: t('prague.missing.<%= singular_name %>',
