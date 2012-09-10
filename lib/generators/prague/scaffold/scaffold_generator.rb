@@ -22,6 +22,11 @@ module Prague
         template 'view.html.erb.erb', "app/views/#{plural_name}/display.html.erb"
       end
 
+      def add_display_link_to_show_view
+        append_to_file "app/views/#{plural_name}/show.html.erb",
+            "| <%= link_to 'Display', display_#{singular_name}_path(permalink: @#{singular_name}.permalink) %>"
+      end
+
       def add_meta_tags_to_application_layout
         gsub_file 'app/views/layouts/application.html.erb', '</head>',
             "  <%= content_for :meta_tags if content_for? :meta_tags %>\n</head>"
