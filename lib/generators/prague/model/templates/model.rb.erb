@@ -1,10 +1,11 @@
 class <%= class_name %> < ActiveRecord::Base
-  attr_accessible :title, :permalink, :link_title, :sort_value, :body, :online
+  attr_accessible :title, :permalink, :link_title, :sort_value, :head, :body, :online
 
   validates :title, presence: true
   validates :permalink, presence: true, uniqueness: true
   validates :link_title, presence: true
   validates :sort_value, length: {maximum: 100}
+  validates :head, presence: true
   validates :body, presence: true
 
   default_scope order('sort_value DESC')

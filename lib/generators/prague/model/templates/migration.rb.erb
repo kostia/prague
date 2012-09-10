@@ -5,6 +5,7 @@ class PragueCreate<%= table_name.camelize %> < ActiveRecord::Migration
       t.string :permalink, null: false, uniq: true
       t.string :link_title, null: false
       t.string :sort_value, limit: 100
+      t.text :head, null: false
       t.text :body, null: false
       t.boolean :online, default: false
     end
