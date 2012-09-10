@@ -1,3 +1,15 @@
+# Prague-model for pages.
+#
+# Attributes:
+#
+# title - Title of the page.
+# permalink - Path the page should be accessed by.
+# link_title - Title for links in views.
+# sort_value - Pages are returned sorted by the the sort_value by default.
+# head - Content for meta tags for the page.
+# body - Content for main content of the page.
+# online - Whether or not the page should be visible to the outside world.
+#
 class <%= class_name %> < ActiveRecord::Base
   attr_accessible :title, :permalink, :link_title, :sort_value, :head, :body, :online
 
