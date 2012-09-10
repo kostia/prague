@@ -12,7 +12,8 @@ module Prague
       end
 
       def create_controller
-        invoke 'scaffold_controller', [singular_name.classify]
+        generate 'scaffold_controller', singular_name.classify +
+            ' title permalink link_title sort_value head:text body:text online:boolean'
         inject_into_class "app/controllers/#{plural_name}_controller.rb",
             "#{controller_class_name}Controller", erb('action.rb.erb')
       end
