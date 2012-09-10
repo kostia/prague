@@ -4,7 +4,7 @@ module Prague
       include Rails::Generators::ResourceHelpers
 
       desc 'This generator generates a scaffold for pages'
-      argument :name, default: 'Page'
+      argument :name, default: 'page'
       source_root File.expand_path('../templates', __FILE__)
 
       def create_model_and_migration
