@@ -26,9 +26,9 @@ module Prague
       end
 
       def add_routes
-        route erb('route.rb.erb')
+        route "\n  resources :#{plural_name}"
         gsub_file 'config/routes.rb', /end\Z/,
-            "\n  match ':permalink' => '#{plural_name}#display'\nend"
+            "\n  match ':permalink' => '#{plural_name}#display', as: 'display_#{singular_name}'\nend"
       end
 
       private
