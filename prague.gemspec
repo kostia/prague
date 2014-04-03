@@ -1,23 +1,19 @@
-$:.push File.expand_path("../lib", __FILE__)
+$:.push File.expand_path('../lib', __FILE__)
 
-# Maintain your gem's version:
-require "prague/version"
+require 'prague/version'
 
-# Describe your gem and declare its dependencies:
-Gem::Specification.new do |s|
-  s.name        = "prague"
-  s.version     = Prague::VERSION
-  s.authors     = ["Kostiantyn Kahanskyi"]
-  s.email       = ["kostiantyn.kahanskyi@googlemail.com"]
-  s.homepage    = "https://github.com/kostia/prague"
-  s.summary     = 'Rails generator for semi-static pages (like "about us", "disclamer" etc.)'
-  s.description = 'Rails generator for semi-static pages (like "about us", "disclamer" etc.)'
+Gem::Specification.new do |gem|
+  gem.name        = 'prague'
+  gem.version     = Prague::VERSION
+  gem.description = 'Rails generator for semi-static pages (like "about us", "disclamer" etc.)'
+  gem.summary     = gem.description
+  gem.homepage    = 'https://github.com/kostia/prague'
+  gem.authors     = ['Kostiantyn Kahanskyi']
+  gem.email       = ['kostiantyn.kahanskyi@googlemail.com']
+  gem.license = 'MIT'
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["Rakefile", "README.md"]
-  s.test_files = Dir["test/**/*"]
+  gem.files = Dir['{app,config,db,lib}/**/*'] + %w[Rakefile README.md]
 
-  s.add_dependency 'rails', '~> 4.0.4'
-  s.required_ruby_version = '>= 1.9.3'
-
-  s.add_development_dependency "sqlite3"
+  gem.required_ruby_version = '>= 1.9.3'
+  gem.add_dependency 'rails', '~> 4.0.4'
 end
