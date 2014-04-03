@@ -11,8 +11,6 @@
 # online - Whether or not the page should be visible to the outside world.
 #
 class <%= class_name %> < ActiveRecord::Base
-  attr_accessible :title, :permalink, :link_title, :sort_value, :head, :body, :online
-
   validates :title, presence: true
   validates :permalink, presence: true, uniqueness: true
   validates :link_title, presence: true
